@@ -8,12 +8,17 @@ body {
     margin: 0;
     padding: 0;
     transition: background-color 0.3s ease;
-    cursor: none; /* Hide the default cursor */
     display: flex; /* Use flexbox to center content */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh; /* Make the body take the full viewport height */
     position: relative;
+    animation: fadeIn 1s ease; /* Add fade-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .container {
@@ -29,6 +34,12 @@ body {
     flex: 1;
     min-width: 300px;
     transition: flex 0.3s;
+    animation: slideIn 0.5s ease; /* Add slide-in animation */
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
 
 .left h1, .right h1 {
@@ -50,7 +61,25 @@ a {
     font-weight: 600;
     color: #1c1c1c; /* Use the same color as the contact links */
     text-decoration: none; /* Remove underline */
-    transition: color 0.3s;
+    transition: color 0.3s, transform 0.3s; /* Add transform for hover */
+    position: relative; /* For pseudo-element effect */
+}
+
+a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: #1c1c1c; /* Underline color */
+    transform: scaleX(0); /* Start hidden */
+    transition: transform 0.3s ease; /* Transition for the underline */
+    width: 100%;
+    position: absolute;
+    bottom: -5px; /* Positioning */
+    left: 0;
+}
+
+a:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
 }
 
 .left p {
@@ -58,8 +87,15 @@ a {
     font-weight: 400;
     line-height: 1.5;
     max-width: 90%;
-    transition: color 0.3s;
 }
+
+.highlight-personal:hover,
+.highlight-hobby:hover,
+.highlight-other:hover {
+    transform: scale(1.25); /* Slightly increase size on hover */
+    transition: transform 0.3s; /* Smooth transition */
+}
+
 
 .highlight-personal {
     background-color: rgba(247, 199, 8, 0.3); /* Lighter yellow for personal info */
@@ -100,13 +136,14 @@ a {
     font-weight: bold;
     color: white;
     position: relative;
-    transition: transform 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s; /* Add box-shadow transition */
     height: 200px; /* Consistent height */
     text-decoration: none; /* Remove underline for links */
 }
 
 .project:hover {
     transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
 }
 
 .project1 {
@@ -144,5 +181,12 @@ a {
     border-radius: 50%; /* Make it a circle */
     pointer-events: none; /* Prevent it from interfering with clicks */
     transform: translate(-50%, -50%); /* Center the cursor */
-    transition: background-color 0.3s; /* Smooth transition for highlighting */
+    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for highlighting */
+    animation: pulse 1.5s infinite; /* Add pulse animation */
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
 }
