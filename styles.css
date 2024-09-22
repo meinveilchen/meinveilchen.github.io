@@ -1,0 +1,148 @@
+body, a, button, input {
+    cursor: none; /* Hide the default cursor for all clickable elements */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f0e1;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease;
+    cursor: none; /* Hide the default cursor */
+    display: flex; /* Use flexbox to center content */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100vh; /* Make the body take the full viewport height */
+    position: relative;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.left, .right {
+    flex: 1;
+    min-width: 300px;
+    transition: flex 0.3s;
+}
+
+.left h1, .right h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+    transition: transform 0.3s;
+}
+
+.left h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+    margin-top: 10px;
+}
+
+a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1c1c1c; /* Use the same color as the contact links */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s;
+}
+
+.left p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 90%;
+    transition: color 0.3s;
+}
+
+.highlight-personal {
+    background-color: rgba(247, 199, 8, 0.3); /* Lighter yellow for personal info */
+}
+
+.highlight-hobby {
+    background-color: rgba(226, 33, 33, 0.3); /* Lighter red for hobbies */
+}
+
+.highlight-other {
+    background-color: rgba(42, 63, 235, 0.3); /* Lighter blue for other info */
+}
+
+.right h1 {
+    text-align: right;
+}
+
+.right .contact-info {
+    text-align: right;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 40px;
+    justify-content: center; /* Center the projects */
+    width: 100%;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    position: relative;
+    transition: transform 0.3s;
+    height: 200px; /* Consistent height */
+    text-decoration: none; /* Remove underline for links */
+}
+
+.project:hover {
+    transform: scale(1.05);
+}
+
+.project1 {
+    background-color: #e22121; /* Red */
+    width: 45%; /* Different width */
+}
+
+.project2 {
+    background-color: #1c1c1c; /* Black */
+    width: 50%; /* Increased width */
+}
+
+.project3 {
+    background-color: #2a3feb; /* Blue */
+    width: 55%; /* Different width */
+}
+
+.project4 {
+    background-color: #f7c708; /* Yellow */
+    color: #1c1c1c;
+    width: 40%; /* Different width */
+}
+
+@media (max-width: 768px) {
+    .project {
+        width: 100%; /* Full width on smaller screens */
+    }
+}
+
+.custom-cursor {
+    position: absolute;
+    width: 20px; /* Diameter of the circle */
+    height: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* Circle color */
+    border-radius: 50%; /* Make it a circle */
+    pointer-events: none; /* Prevent it from interfering with clicks */
+    transform: translate(-50%, -50%); /* Center the cursor */
+    transition: background-color 0.3s; /* Smooth transition for highlighting */
+}
