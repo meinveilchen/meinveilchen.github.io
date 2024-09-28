@@ -1,133 +1,113 @@
+/* General Element Styling */
 body, a, button, input {
-    cursor: none; /* Hide the default cursor for all clickable elements */
+    cursor: none; /* Hide the default cursor */
 }
-
 body {
     font-family: Arial, sans-serif;
     background-color: #f5f0e1;
     margin: 0;
     padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     transition: background-color 0.3s ease;
-    display: flex; /* Use flexbox to center content */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Make the body take the full viewport height */
     position: relative;
-    animation: fadeIn 1s ease; /* Add fade-in animation */
+    animation: fadeIn 1s ease; /* Fade-in animation */
 }
-
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
-
 .container {
     display: flex;
     justify-content: space-between;
-    padding: 40px;
     flex-wrap: wrap;
     max-width: 1200px;
+    padding: 40px;
     margin: auto;
 }
-
 .left, .right {
     flex: 1;
     min-width: 300px;
-    transition: flex 0.3s;
-    animation: slideIn 0.5s ease; /* Add slide-in animation */
+    animation: slideIn 0.5s ease;
 }
-
 @keyframes slideIn {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
-
 .left h1, .right h1 {
     font-size: 4rem;
     font-weight: bold;
     margin: 0;
-    transition: transform 0.3s;
 }
-
 .left h2 {
     font-size: 1.5rem;
     font-weight: 600;
-    margin: 0;
     margin-top: 10px;
 }
-
 a {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1c1c1c; /* Use the same color as the contact links */
-    text-decoration: none; /* Remove underline */
-    transition: color 0.3s, transform 0.3s; /* Add transform for hover */
-    position: relative; /* For pseudo-element effect */
+    color: #1c1c1c;
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
 }
-
 a::after {
     content: '';
     display: block;
     height: 2px;
-    background: #1c1c1c; /* Underline color */
-    transform: scaleX(0); /* Start hidden */
-    transition: transform 0.3s ease; /* Transition for the underline */
+    background: #1c1c1c;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
     width: 100%;
     position: absolute;
-    bottom: -5px; /* Positioning */
+    bottom: -5px;
     left: 0;
 }
-
 a:hover::after {
     transform: scaleX(1); /* Show underline on hover */
 }
-
 .left p {
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.5;
     max-width: 90%;
 }
-
 .highlight-personal:hover,
 .highlight-hobby:hover,
 .highlight-other:hover {
-    transform: scale(1.25); /* Slightly increase size on hover */
-    transition: transform 0.3s; /* Smooth transition */
+    transform: scale(1.25);
+    transition: transform 0.3s;
 }
-
-
 .highlight-personal {
-    background-color: rgba(247, 199, 8, 0.3); /* Lighter yellow for personal info */
+    background-color: rgba(247, 199, 8, 0.3);
 }
-
 .highlight-hobby {
-    background-color: rgba(226, 33, 33, 0.3); /* Lighter red for hobbies */
+    background-color: rgba(226, 33, 33, 0.3);
 }
-
 .highlight-other {
-    background-color: rgba(42, 63, 235, 0.3); /* Lighter blue for other info */
+    background-color: rgba(42, 63, 235, 0.3);
 }
-
 .right h1 {
     text-align: right;
 }
-
 .right .contact-info {
     text-align: right;
     font-weight: 600;
     margin-top: 10px;
 }
 
+/* Project Section */
 .projects {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 40px;
-    justify-content: center; /* Center the projects */
+    justify-content: center;
     width: 100%;
+    margin-top: 40px;
 }
-
 .project {
     display: flex;
     align-items: center;
@@ -135,58 +115,37 @@ a:hover::after {
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
+    height: 200px;
     position: relative;
-    transition: transform 0.3s, box-shadow 0.3s; /* Add box-shadow transition */
-    height: 200px; /* Consistent height */
-    text-decoration: none; /* Remove underline for links */
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
-
 .project:hover {
     transform: scale(1.05);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Add shadow on hover */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
-
-.project1 {
-    background-color: #e22121; /* Red */
-    width: 45%; /* Different width */
-}
-
-.project2 {
-    background-color: #1c1c1c; /* Black */
-    width: 50%; /* Increased width */
-}
-
-.project3 {
-    background-color: #2a3feb; /* Blue */
-    width: 55%; /* Different width */
-}
-
-.project4 {
-    background-color: #f7c708; /* Yellow */
-    color: #1c1c1c;
-    width: 40%; /* Different width */
-}
-
+.project1 { background-color: #e22121; width: 45%; }
+.project2 { background-color: #1c1c1c; width: 50%; }
+.project3 { background-color: #2a3feb; width: 55%; }
+.project4 { background-color: #f7c708; color: #1c1c1c; width: 40%; }
 @media (max-width: 768px) {
     .project {
-        width: 100%; /* Full width on smaller screens */
+        width: 100%;
     }
 }
 
+/* Custom Cursor */
 .custom-cursor {
     position: absolute;
-    width: 20px; /* Diameter of the circle */
+    width: 20px;
     height: 20px;
-    background-color: rgba(0, 0, 0, 0.5); /* Circle color */
-    border-radius: 50%; /* Make it a circle */
-    pointer-events: none; /* Prevent it from interfering with clicks */
-    transform: translate(-50%, -50%); /* Center the cursor */
-    transition: background-color 0.3s, transform 0.3s; /* Smooth transition for highlighting */
-    animation: pulse 1.5s infinite; /* Add pulse animation */
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: pulse 1.5s infinite;
 }
-
 @keyframes pulse {
-    0% { transform: scale(1); }
+    0%, 100% { transform: scale(1); }
     50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
 }
