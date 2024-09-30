@@ -36,8 +36,8 @@ document.addEventListener('mousemove', (e) => {
 // Change cursor color on hover over links
 document.addEventListener('mouseover', (e) => {
     if (e.target.tagName === 'A' || e.target.tagName === 'H1' || e.target.tagName === 'H2') {
-        cursor.style.backgroundColor = 'rgba(0, 0, 0, 0.9)'; // Darker when hovering over text
+        cursor.style.backgroundColor = 'rgba(255, 105, 180, 0.9)'; /* Brighter pink for visibility */
     } else {
-        cursor.style.backgroundColor = 'rgba(0, 0, 0, 0.6)'; // Default color
+        cursor.style.backgroundColor = 'rgba(175, 33, 207, 0.7)'; /* Default main color */
     }
 });
