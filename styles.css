@@ -5,7 +5,7 @@ body, a, button, input {
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212; /* Dark background for dark mode */
+    background-color: #000000; /* Dark background for dark mode */
     color: #e0e0e0; /* Light text for readability */
     margin: 0;
     padding: 0;
