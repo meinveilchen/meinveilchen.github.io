@@ -2,23 +2,27 @@
 body, a, button, input {
     cursor: none; /* Hide the default cursor */
 }
+
 body {
     font-family: Arial, sans-serif;
-    background-color: #f5f0e1;
+    background-color: #121212; /* Dark background for dark mode */
+    color: #e0e0e0; /* Light text for readability */
     margin: 0;
     padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     position: relative;
     animation: fadeIn 1s ease; /* Fade-in animation */
 }
+
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
 .container {
     display: flex;
     justify-content: space-between;
@@ -27,38 +31,46 @@ body {
     padding: 40px;
     margin: auto;
 }
+
 .left, .right {
     flex: 1;
     min-width: 300px;
     animation: slideIn 0.5s ease;
 }
+
 @keyframes slideIn {
     from { transform: translateY(20px); opacity: 0; }
     to { transform: translateY(0); opacity: 1; }
 }
+
 .left h1, .right h1 {
     font-size: 4rem;
     font-weight: bold;
     margin: 0;
+    color: #AF21CF; /* Main standout color */
 }
+
 .left h2 {
     font-size: 1.5rem;
     font-weight: 600;
     margin-top: 10px;
+    color: #BB86FC; /* Complementary standout color */
 }
+
 a {
     font-size: 1.5rem;
     font-weight: 600;
-    color: #1c1c1c;
+    color: #BB86FC; /* Link color in standout */
     text-decoration: none;
     transition: color 0.3s, transform 0.3s;
     position: relative;
 }
+
 a::after {
     content: '';
     display: block;
     height: 2px;
-    background: #1c1c1c;
+    background: #AF21CF; /* Underline with standout color */
     transform: scaleX(0);
     transition: transform 0.3s ease;
     width: 100%;
@@ -66,37 +78,57 @@ a::after {
     bottom: -5px;
     left: 0;
 }
+
 a:hover::after {
     transform: scaleX(1); /* Show underline on hover */
 }
+
 .left p {
     font-size: 1.2rem;
     font-weight: 400;
     line-height: 1.5;
     max-width: 90%;
+    color: #e0e0e0; /* Ensure paragraph text is light */
 }
+
+.highlight-personal,
+.highlight-hobby,
+.highlight-other {
+    padding: 2px 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
 .highlight-personal:hover,
 .highlight-hobby:hover,
 .highlight-other:hover {
-    transform: scale(1.25);
-    transition: transform 0.3s;
+    transform: scale(1.05);
 }
+
 .highlight-personal {
-    background-color: rgba(247, 199, 8, 0.3);
+    background-color: rgba(175, 33, 207, 0.3); /* Using main standout color */
+    color: #AF21CF;
 }
+
 .highlight-hobby {
-    background-color: rgba(226, 33, 33, 0.3);
+    background-color: rgba(255, 105, 180, 0.3); /* Hot pink for hobbies */
+    color: #FF69B4;
 }
+
 .highlight-other {
-    background-color: rgba(42, 63, 235, 0.3);
+    background-color: rgba(100, 149, 237, 0.3); /* Cornflower blue */
+    color: #6495ED;
 }
+
 .right h1 {
     text-align: right;
+    color: #AF21CF; /* Main standout color */
 }
+
 .right .contact-info {
     text-align: right;
     font-weight: 600;
     margin-top: 10px;
+    color: #e0e0e0;
 }
 
 /* Project Section */
@@ -108,6 +140,7 @@ a:hover::after {
     width: 100%;
     margin-top: 40px;
 }
+
 .project {
     display: flex;
     align-items: center;
@@ -120,14 +153,39 @@ a:hover::after {
     text-decoration: none;
     transition: transform 0.3s, box-shadow 0.3s;
 }
+
 .project:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
-.project1 { background-color: #e22121; width: 45%; }
-.project2 { background-color: #1c1c1c; width: 50%; }
-.project3 { background-color: #2a3feb; width: 55%; }
-.project4 { background-color: #f7c708; color: #1c1c1c; width: 40%; }
+
+.project1 { 
+    background-color: #AF21CF; /* Main standout color */
+    width: 45%;
+}
+
+.project2 { 
+    background-color: #03DAC6; /* Teal for contrast */
+    width: 50%;
+}
+
+.project3 { 
+    background-color: #BB86FC; /* Light purple */
+    width: 55%;
+}
+
+.project4 { 
+    background-color: #CF6679; /* Soft red */
+    width: 40%; 
+}
+
+/* Adjust project colors for better contrast */
+.project1 { color: #ffffff; }
+.project2 { color: #000000; }
+.project3 { color: #ffffff; }
+.project4 { color: #000000; }
+
+/* Responsive Design */
 @media (max-width: 768px) {
     .project {
         width: 100%;
@@ -139,13 +197,33 @@ a:hover::after {
     position: absolute;
     width: 20px;
     height: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
-    border-radius: 50%;
+    background-color: rgba(175, 33, 207, 0.7); /* Main standout color with opacity */
     pointer-events: none;
     transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
     animation: pulse 1.5s infinite;
 }
+
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.2); }
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.custom-cursor.active {
+    background-color: rgba(255, 255, 255, 0.9); /* Bright color on active state */
+}
+
+/* Additional Enhancements */
+button, input {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    border: 1px solid #AF21CF;
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    outline: none; /* Remove focus outline */
+}
+
+button:hover, input:hover {
+    background-color: #AF21CF;
+    color: #ffffff;
 }
