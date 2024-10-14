@@ -1,0 +1,473 @@
+/* Light Theme CSS */
+
+/* Color Scheme Variables */
+:root {
+    /* Base Colors */
+    --background-color: #FFFFFF; /* White */
+    --text-color: #000000; /* Black */
+    --link-color: #487CA5; /* Blue */
+    --link-hover-color: #CC782F; /* Orange */
+    --button-background: #8A67AB; /* Purple */
+    --button-hover-background: #487CA5; /* Blue */
+    --highlight-personal-bg: #F6F3F8; /* Light Purple */
+    --highlight-personal-text: #8A67AB; /* Purple */
+    --highlight-hobby-bg: #FAECEC; /* Light Red */
+    --highlight-hobby-text: #C4554D; /* Red */
+    --highlight-other-bg: #E9F3F7; /* Light Blue */
+    --highlight-other-text: #487CA5; /* Blue */
+    --cursor-color: rgba(72, 124, 165, 0.7); /* Blue with opacity */
+    --cursor-active-color: rgba(72, 124, 165, 0.9); /* Brighter Blue */
+    --border-color: #CC782F; /* Orange */
+    --footer-background: #FFFFFF; /* White */
+    --footer-text-color: #000000; /* Black */
+    --footer-border-color: #CC782F; /* Orange */
+}
+
+/* General Element Styling */
+body, a, button, input {
+    cursor: none; /* Hide the default cursor */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color); /* White background */
+    color: var(--text-color); /* Black text */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+    animation: fadeIn 1s ease; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Container Styling */
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    padding: 40px;
+    margin: auto;
+}
+
+.left, .right {
+    flex: 1;
+    min-width: 300px;
+    animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.left h1, .right h1, .about-section .left h1, .blog-section .left h1, .gallery-section .left h1 {
+    font-size: 4rem;
+    font-weight: bold;
+    margin: 0;
+    color: #000000
+}
+
+.left h2, .about-section .left h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 10px;
+    color: var(--link-color); /* Blue */
+}
+
+a {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--link-color); /* Blue */
+    text-decoration: none;
+    transition: color 0.3s, transform 0.3s;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    background: var(--highlight-personal-text); /* Purple */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    width: 100%;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+a:hover::after {
+    transform: scaleX(1); /* Show underline on hover */
+}
+
+.left p, .about-section .left p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    max-width: 90%;
+    color: var(--text-color); /* Black */
+}
+
+.right p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text-color); /* Black */
+}
+
+.highlight-personal,
+.highlight-hobby,
+.highlight-other {
+    padding: 2px 4px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.highlight-personal:hover,
+.highlight-hobby:hover,
+.highlight-other:hover {
+    transform: scale(1.05);
+}
+
+.highlight-personal {
+    background-color: var(--highlight-personal-bg); /* Light Purple */
+    color: var(--highlight-personal-text); /* Purple */
+}
+
+.highlight-hobby {
+    background-color: var(--highlight-hobby-bg); /* Light Red */
+    color: var(--highlight-hobby-text); /* Red */
+}
+
+.highlight-other {
+    background-color: var(--highlight-other-bg); /* Light Blue */
+    color: var(--highlight-other-text); /* Blue */
+}
+
+.right h1, .blog-section .right h1, .gallery-section .right h1 {
+    text-align: right;
+    color: #000000;
+}
+
+.right .contact-info {
+    text-align: right;
+    font-weight: 600;
+    margin-top: 10px;
+    color: var(--text-color); /* Black */
+}
+
+/* Project Section */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+}
+
+.project {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--text-color);
+    height: 200px;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(72, 124, 165, 0.5); /* Blue shadow */
+}
+
+.project1 { 
+    background-color: var(--highlight-personal-text); /* Purple */
+    width: 45%;
+    color: #FFFFFF; /* White text */
+}
+
+.project2 { 
+    background-color: var(--link-color); /* Blue */
+    width: 50%;
+    color: #FFFFFF; /* White text */
+}
+
+.project3 { 
+    background-color: #CC782F; /* Orange */
+    width: 55%;
+    color: #FFFFFF; /* White text */
+}
+
+.project4 { 
+    background-color: #C4554D; /* Red */
+    width: 40%; 
+    color: #FFFFFF; /* White text */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .project {
+        width: 100%;
+    }
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: var(--cursor-color); /* Blue with opacity */
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s, background-color 0.2s;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.2); }
+}
+
+.custom-cursor.active {
+    background-color: var(--cursor-active-color); /* Brighter Blue */
+}
+
+/* Additional Enhancements */
+button, input {
+    background-color: #F0F0F0; /* Light gray background */
+    color: var(--text-color); /* Black text */
+    border: 1px solid var(--border-color); /* Orange border */
+    padding: 10px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    outline: none; /* Remove focus outline */
+}
+
+button:hover, input:hover {
+    background-color: var(--button-background); /* Purple */
+    color: #FFFFFF; /* White text */
+}
+
+.fade {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.fade-in {
+    opacity: 1;
+}
+
+/* Zoom effect for buttons */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--button-background); /* Purple */
+    color: #FFFFFF; /* White */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: transform 0.3s, background-color 0.3s;
+}
+
+.back-button:hover {
+    transform: scale(1.05);
+    background-color: var(--link-color); /* Blue */
+}
+
+/* New Section Styles */
+
+/* About Section */
+.about-section {
+    background-color: var(--background-color); /* White */
+    padding: 60px 0;
+}
+
+.about-section .left h1 {
+    margin-bottom: 20px;
+}
+
+.about-section .left p {
+    max-width: 100%;
+}
+
+.about-section .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-image {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(72, 124, 165, 0.5); /* Blue shadow */
+}
+
+/* Blog Section */
+.blog-section {
+    background-color: var(--background-color); /* White */
+    padding: 60px 0;
+}
+
+.blog-section .left h1 {
+    margin-bottom: 20px;
+}
+
+.blog-section .blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-post h2 {
+    font-size: 2rem;
+    color: var(--link-color); /* Blue */
+}
+
+.blog-post p {
+    font-size: 1rem;
+    color: var(--text-color); /* Black */
+}
+
+.latest-posts {
+    list-style: none;
+    padding: 0;
+}
+
+.latest-posts li {
+    margin-bottom: 10px;
+}
+
+.latest-posts a {
+    font-size: 1.2rem;
+    color: var(--link-color); /* Blue */
+}
+
+.latest-posts a:hover {
+    color: var(--link-hover-color); /* Orange */
+}
+
+/* Gallery Section */
+.gallery-section {
+    background-color: #F6F3F8; /* Light Purple */
+    padding: 60px 0;
+}
+
+.gallery-section .left h1 {
+    margin-bottom: 20px;
+}
+
+.gallery-images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery-image {
+    width: calc(50% - 20px);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(72, 124, 165, 0.5); /* Blue shadow */
+    transition: transform 0.3s;
+}
+
+.gallery-image:hover {
+    transform: scale(1.05);
+}
+
+.featured-art {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(72, 124, 165, 0.5); /* Blue shadow */
+    transition: transform 0.3s;
+}
+
+.featured-art:hover {
+    transform: scale(1.05);
+}
+
+/* Responsive Adjustments for New Sections */
+@media (max-width: 768px) {
+    .about-section .container,
+    .blog-section .container,
+    .gallery-section .container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .gallery-image {
+        width: 100%;
+    }
+}
+
+/* Existing CSS remains unchanged */
+
+/* Additional Sections Styling */
+
+/* About Section */
+.about-section .profile-image {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+    margin-top: 20px;
+    box-shadow: 0 4px 10px rgba(72, 124, 165, 0.5); /* Blue shadow */
+}
+
+/* Skills Section */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    font-size: 1.2rem;
+    color: var(--text-color); /* Black */
+}
+
+.skills-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 10px;
+}
+
+.skills-list li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--highlight-personal-text); /* Purple */
+}
+/* Footer Styles */
+footer {
+    background-color: #CC782F; /* Standout footer background color */
+    color: #ffffff; /* White text color */
+    text-align: center;
+    padding: 8px 0; /* Padding for footer */
+    position: relative; /* Allows proper positioning */
+    bottom: 0;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1200px; /* Center the footer content */
+    margin: auto;
+}
+
+.social-links {
+    margin-top: 10px; /* Space between copyright and social links */
+}
+
+.social-links a {
+    color: #ffffff; /* White color for links */
+    text-decoration: none; /* Remove underline */
+    margin: 0 10px; /* Margin between links */
+}
+
+.social-links a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
