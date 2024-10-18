@@ -307,7 +307,7 @@ button:hover, input:hover {
 
 .profile-image {
     width: 100%;
-    max-width: 400px;
+    max-width: 300px;
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(72, 124, 165, 0.5); /* Blue shadow */
 }
