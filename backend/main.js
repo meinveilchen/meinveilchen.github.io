@@ -23,3 +23,25 @@ async function loadPosts() {
 }
 
 document.addEventListener("DOMContentLoaded", loadPosts);
+
+
+const audio = document.getElementById('bg-music');
+
+// MUSIC
+function startAudio() {
+    if (audio && audio.paused) {
+        audio.volume = 0.3; 
+        
+        audio.play().then(() => {
+            events.forEach(event => window.removeEventListener(event, startAudio));
+        }).catch(error => {
+            console.log("Autoplay waiting for user interaction:", error);
+        });
+    }
+}
+
+const events = ['click', 'scroll', 'keydown', 'touchstart', 'mousemove'];
+
+events.forEach(event => {
+    window.addEventListener(event, startAudio, { once: true });
+});

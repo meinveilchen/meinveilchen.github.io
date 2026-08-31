@@ -1,9 +1,19 @@
+/* Load Momo Trust Display Font */
+@font-face {
+  font-family: 'Momo Trust Display';
+  src: url('/assets/MomoTrustDisplay-Regular.woff2') format('woff2'),
+       url('/assets/MomoTrustDisplay-Regular.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
-  --accent-color: #b84c36;
-  --background-color: #020202;
-  --text-color: #e8e0d5;
-  --gray-color: #ded5ca;
-  --border-color: #e8e0d5;
+  --accent-color: #C95706;
+  --background-color: #FFFFFF;
+  --text-color: #000000;
+  --gray-color: #181818;
+  --border-color: #000000;
 }
 
 body {
@@ -13,9 +23,13 @@ body {
     font-weight: 500;
     font-size: 1.2em;
     color: var(--text-color);
-    background: var(--background-color);
+    background-image: url('assets/background_w.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding-left: 50px;
     padding-right: 50px;
+    cursor: url('/assets/cursor.png'), auto;
 }
 
 a {
@@ -24,16 +38,29 @@ a {
 }
 
 h1 {
-    font-family: 'Lora', serif;
-    font-weight: 700;
-    color: var(--accent-color);
-    font-size: 2em;
+    font-family: 'Momo Trust Display', 'Lora', serif;
+    font-size: 2.2em;
+    font-weight: 900;
+    letter-spacing: 1px;
+    
+    -webkit-text-stroke: 2px #000000;
+    
+    background-image: 
+        url('/assets/xs.png'), 
+        linear-gradient(#ffffff, #ffffff);
+    background-repeat: repeat, repeat;
+    background-size: 4px 4px, auto; 
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+
+    filter: drop-shadow(3px 4px 0px #C95706);
 }
 
-h2{
+h2 {
     font-family: 'Lora', serif;
     font-weight: 700;
-    color: var(--accent-color);
     font-size: 1.5em;
 }
 
@@ -106,7 +133,18 @@ h2{
 }
 
 .post-title a {
-    color: var(--text-color); 
+    font-family: 'Momo Trust Display', 'Lora', serif;
+    -webkit-text-stroke: 2px #000000;
+    
+    background-image: 
+        url('/assets/xs.png'), 
+        linear-gradient(#ffffff, #ffffff);
+    background-repeat: repeat, repeat;
+    background-size: 4px 4px, auto;
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
     text-decoration: none;
 }
 
@@ -129,4 +167,10 @@ h2{
         width: 100%; 
         max-width: 260px;
     }
+}
+
+a, 
+button, 
+.post-title a {
+    cursor: url('/assets/cursor-pointer.png'), pointer;
 }
